@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101426">
+  <title>Gallery — Hello, world!</title>
+  <style>
+    :root { color-scheme:dark; --ink:#f7f5ff; --muted:#a9adc7; --violet:#a991ff; --cyan:#76e4de; }
+    * { box-sizing:border-box; }
+    body { min-height:100vh; margin:0; color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; background:radial-gradient(ellipse at 16% 18%,rgba(116,91,228,.25),transparent 35%),radial-gradient(ellipse at 84% 80%,rgba(54,195,190,.16),transparent 34%),#101426; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.22; background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size:52px 52px; mask-image:linear-gradient(to bottom,black,transparent 90%); }
+    nav { position:fixed; top:24px; left:50%; z-index:2; display:flex; gap:4px; padding:6px; border:1px solid rgba(255,255,255,.12); border-radius:999px; background:rgba(18,22,41,.82); backdrop-filter:blur(14px); transform:translateX(-50%); }
+    nav a { padding:10px 13px; border-radius:999px; color:var(--muted); font-size:.84rem; text-decoration:none; transition:color .2s,background .2s; }
+    nav a:hover,nav a[aria-current="page"] { color:var(--ink); background:rgba(255,255,255,.1); }
+    main { position:relative; width:min(980px,calc(100% - 40px)); margin:120px auto 80px; animation:rise .8s cubic-bezier(.2,.8,.2,1) both; }
+    .eyebrow { margin:0 0 14px; color:var(--cyan); font-size:.75rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+    h1 { margin:0; font-size:clamp(3rem,8vw,5.4rem); line-height:1; letter-spacing:-.075em; }
+    h1 span { color:transparent; background:linear-gradient(100deg,#c5b8ff 12%,#8be9e0 90%); background-clip:text; -webkit-background-clip:text; }
+    .intro { max-width:520px; margin:20px 0 34px; color:var(--muted); font-size:1.05rem; line-height:1.7; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    figure { position:relative; min-height:220px; margin:0; overflow:hidden; border:1px solid rgba(255,255,255,.14); border-radius:22px; background:#202743; box-shadow:0 18px 50px rgba(0,0,0,.2); isolation:isolate; }
+    figure::before { content:""; position:absolute; inset:0; z-index:-1; transition:transform .5s ease; }
+    figure:hover::before { transform:scale(1.06); }
+    figure:nth-child(1)::before { background:radial-gradient(ellipse at 70% 28%,#f4b995 0 5%,transparent 6%),radial-gradient(ellipse at 50% 80%,#de829b,transparent 52%),linear-gradient(145deg,#f5c88e,#9567a9 55%,#28345e); }
+    figure:nth-child(2)::before { background:radial-gradient(ellipse at 68% 32%,#e3efff 0 8%,transparent 9%),radial-gradient(ellipse at 25% 85%,#39bcb7,transparent 48%),linear-gradient(145deg,#283a73,#5963a9 55%,#182344); }
+    figure:nth-child(3)::before { background:radial-gradient(ellipse at 50% 50%,rgba(255,226,142,.9) 0 3%,transparent 4%),repeating-conic-gradient(from 20deg at 50% 50%,rgba(255,255,255,.12) 0 7deg,transparent 7deg 16deg),linear-gradient(140deg,#e38d8f,#b2609c 48%,#473b79); }
+    figure:nth-child(4)::before { background:radial-gradient(ellipse at 35% 75%,#77e4cf,transparent 32%),radial-gradient(ellipse at 70% 24%,#f2dba3,transparent 22%),linear-gradient(150deg,#2f6478,#394e80 55%,#282b52); }
+    figure:nth-child(5)::before { background:radial-gradient(ellipse at 55% 35%,#f6cd8d 0 8%,transparent 9%),radial-gradient(ellipse at 55% 100%,#b75d87,transparent 44%),linear-gradient(145deg,#7773ba,#e999a1 56%,#533d72); }
+    figure:nth-child(6)::before { background:radial-gradient(ellipse at 76% 27%,#fff0c0 0 7%,transparent 8%),radial-gradient(ellipse at 20% 88%,#81d4c9,transparent 38%),linear-gradient(145deg,#203e5b,#4a7190 52%,#293257); }
+    figcaption { position:absolute; inset:auto 0 0; padding:42px 18px 17px; background:linear-gradient(transparent,rgba(10,13,27,.88)); font-weight:600; letter-spacing:.01em; }
+    footer { position:relative; padding:0 0 24px; color:rgba(220,223,244,.48); font-size:.75rem; letter-spacing:.08em; text-align:center; }
+    @keyframes rise { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    @media(max-width:700px) { main{margin-top:110px}.grid{grid-template-columns:repeat(2,1fr)}figure{min-height:190px} }
+    @media(max-width:430px) { nav{top:14px;gap:0;padding:5px}nav a{padding:9px 10px;font-size:.78rem}.grid{gap:10px}figure{min-height:155px;border-radius:16px}figcaption{padding:34px 12px 13px;font-size:.9rem} }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important} }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <main>
+    <p class="eyebrow">Small moments, big color</p>
+    <h1>A visual<br><span>daydream.</span></h1>
+    <p class="intro">A collection of little scenes made from color, light, and imagination. Take a moment and wander through.</p>
+    <section class="grid" aria-label="Gallery collection">
+      <figure><figcaption>Golden hour</figcaption></figure>
+      <figure><figcaption>Quiet tides</figcaption></figure>
+      <figure><figcaption>Afterglow</figcaption></figure>
+      <figure><figcaption>Hidden garden</figcaption></figure>
+      <figure><figcaption>Soft horizons</figcaption></figure>
+      <figure><figcaption>Blue escape</figcaption></figure>
+    </section>
+  </main>
+  <footer>MADE WITH A LITTLE SPARK ✦</footer>
+</body>
+</html>
