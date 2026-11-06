@@ -78,6 +78,35 @@
       text-transform: uppercase;
     }
 
+    nav {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      z-index: 2;
+      display: flex;
+      gap: 8px;
+      padding: 7px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      background: rgba(18,22,41,.72);
+      backdrop-filter: blur(14px);
+      transform: translateX(-50%);
+    }
+
+    nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: .88rem;
+      text-decoration: none;
+      transition: color .2s, background .2s;
+    }
+
+    nav a:hover, nav a[aria-current="page"] {
+      color: var(--ink);
+      background: rgba(255,255,255,.1);
+    }
+
     h1 {
       margin: 0;
       font-size: clamp(3.25rem, 10vw, 6.2rem);
@@ -132,6 +161,11 @@
   </style>
 </head>
 <body>
+  <nav aria-label="Main navigation">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <main>
     <div class="sparkle" aria-hidden="true">✦</div>
     <p class="eyebrow">A little beginning</p>
